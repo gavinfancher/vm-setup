@@ -15,8 +15,12 @@ echo "Running basic package installation..."
 echo "Setting up Docker..."
 ./scripts/install_docker.sh
 
+apt install python3.12-venv
+
 echo "Setting up GitHub SSH..."
 ./scripts/setup_github_ssh.sh
 
+
 echo "Setup complete!"
 echo "Note: You may need to log out and back in for Docker group changes to take effect"
+
