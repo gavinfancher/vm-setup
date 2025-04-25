@@ -1,16 +1,11 @@
 #!/bin/bash
 
-# Exit on error
 set -e
 
-echo "Installing basic system packages..."
+echo "starting basic packages script"
 
-# Update package lists
-echo "Updating package lists..."
 sudo apt-get update
 
-# Install required packages
-echo "Installing required packages..."
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
@@ -18,6 +13,7 @@ sudo apt-get install -y \
     gnupg \
     lsb-release \
     git \
-    openssh-server
+    openssh-server \
+    python3-venv
 
-echo "Basic package installation complete!" 
+echo "basic packages script complete" 
