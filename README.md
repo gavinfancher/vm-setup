@@ -1,6 +1,4 @@
-# VM Setup Automation
-
-This repository contains modular scripts to automate the setup of an Ubuntu VM with Docker and GitHub SSH access.
+# Ubuntu VM Setup Automation
 
 ## Directory Structure
 
@@ -13,14 +11,6 @@ vm-setup/
 │   └── setup_github_ssh.sh
 └── README.md
 ```
-
-## Prerequisites
-
-- Ubuntu-based VM
-- Sudo privileges
-- Internet connection
-
-## Usage
 
 ### Full Setup
 
