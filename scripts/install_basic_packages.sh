@@ -4,16 +4,19 @@ set -e
 
 echo "starting basic packages script"
 
-sudo apt-get update
+sudo yum update -y
 
-sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
+sudo yum install -y \
     curl \
-    gnupg \
-    lsb-release \
     git \
     openssh-server \
-    python3-venv
+    python3 \
+    python3-pip \
+    python3-devel \
+    gcc \
+    make \
+    openssl-devel \
+    bzip2-devel \
+    libffi-devel
 
 echo "basic packages script complete" 
