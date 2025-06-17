@@ -12,4 +12,5 @@ sudo apt-get install -y \
     lsb-release \
     git \
     openssh-server \
-    python3-venv
+    python3-venv \
+    tmux
