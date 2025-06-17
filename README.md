@@ -8,65 +8,29 @@ vm-setup/
 ├── scripts/              # Individual setup scripts
 │   ├── install_basic_packages.sh
 │   ├── install_docker.sh
-│   └── setup_github_ssh.sh
 └── README.md
 ```
 
-### Full Setup
 
-1. Clone this repository to your VM:
-   ```bash
-   git clone <repository-url>
-   cd vm-setup
-   ```
+#### What commands are run
 
-2. Make the setup script executable:
-   ```bash
-   chmod +x setup.sh
-   ```
+```
+sudo apt-get update
 
-3. Run the setup script:
-   ```bash
-   ./setup.sh
-   ```
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    git \
+    openssh-server \
+    python3-venv
 
-### Individual Components
 
-You can also run individual setup scripts from the `scripts` directory:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-- Basic system packages:
-  ```bash
-  ./scripts/install_basic_packages.sh
-  ```
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-- Docker installation:
-  ```bash
-  ./scripts/install_docker.sh
-  ```
-
-- GitHub SSH setup:
-  ```bash
-  ./scripts/setup_github_ssh.sh
-  ```
-
-## What Each Script Does
-
-### install_basic_packages.sh
-- Updates system packages
-- Installs basic required packages (curl, git, etc.)
-
-### install_docker.sh
-- Installs Docker and its dependencies
-- Configures Docker to run without sudo
-- Adds current user to docker group
-
-### setup_github_ssh.sh
-- Sets up SSH for GitHub access
-- Generates a new SSH key if one doesn't exist
-- Displays the public key to add to GitHub
-
-## Notes
-
-- You may need to log out and back in for Docker group changes to take effect
-- The scripts use the latest stable version of Docker
-- SSH keys are generated using ED25519 algorithm for better security
+sudo usermod -aG docker $USER
+```
